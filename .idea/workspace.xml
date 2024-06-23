@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
@@ -35,7 +36,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProgrammingLearning/Java_Learning/大二下/大作业/YYDB&quot;,
     &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.14871795&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.34969854&quot;,
@@ -172,7 +173,21 @@
       <option name="project" value="LOCAL" />
       <updated>1719166878242</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="黄愿">
+      <created>1719167503135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1719167503136</updated>
+    </task>
+    <task id="LOCAL-00016" summary="黄愿">
+      <created>1719167634846</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1719167634846</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -231,9 +246,9 @@
     <MESSAGE value="测试3" />
     <MESSAGE value="测试4" />
     <MESSAGE value="更改" />
-    <MESSAGE value="黄愿" />
     <MESSAGE value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
+    <MESSAGE value="黄愿" />
+    <option name="LAST_COMMIT_MESSAGE" value="黄愿" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
