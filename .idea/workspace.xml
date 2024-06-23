@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="测试2">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="测试3">
+      <change afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db_shell.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/easy-db" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/RespDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/RespStatusTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketServerUsage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/StoreUsage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/AbstractCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/CommandPos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/CommandTypeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/RmCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/SetCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/Store.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/utils/CommandUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/utils/LoggerUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/yy/utils/RandomAccessFileUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,18 +55,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.14871795",
-    "project.structure.side.proportion": "0.34969854"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14871795&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34969854&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\HY320\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="" />
@@ -77,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719156563318</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="测试3">
+      <created>1719160123463</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1719160123463</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -95,6 +133,11 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="测试" />
     <MESSAGE value="测试2" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试2" />
+    <MESSAGE value="测试3" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
