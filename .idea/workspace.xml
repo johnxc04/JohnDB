@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +144,35 @@
       <option name="project" value="LOCAL" />
       <updated>1719166248813</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="黄愿">
+      <created>1719166658137</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1719166658137</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1">
+      <created>1719166732939</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1719166732939</updated>
+    </task>
+    <task id="LOCAL-00013" summary="黄愿">
+      <created>1719166857314</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1719166857314</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1">
+      <created>1719166878242</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1719166878242</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -181,6 +208,21 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -188,9 +230,10 @@
     <MESSAGE value="测试2" />
     <MESSAGE value="测试3" />
     <MESSAGE value="测试4" />
-    <MESSAGE value="黄愿" />
     <MESSAGE value="更改" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改" />
+    <MESSAGE value="黄愿" />
+    <MESSAGE value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
