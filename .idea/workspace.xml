@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="测试4">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.table" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719161583220</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="黄愿">
+      <created>1719164303892</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1719164303892</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +144,8 @@
     <MESSAGE value="测试2" />
     <MESSAGE value="测试3" />
     <MESSAGE value="测试4" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试4" />
+    <MESSAGE value="黄愿" />
+    <option name="LAST_COMMIT_MESSAGE" value="黄愿" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
