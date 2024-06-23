@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿" />
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +43,22 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;build.tools&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="应用程序.SocketServerUsage">
     <configuration name="SocketClientUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
+      <module name="YYDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yy.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketServerUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketServerUsage" />
       <module name="YYDB" />
       <extension name="coverage">
         <pattern>
@@ -57,6 +73,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.SocketClientUsage" />
+        <item itemvalue="应用程序.SocketServerUsage" />
       </list>
     </recent_temporary>
   </component>
@@ -191,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719167826231</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="黄愿">
+      <created>1719168327636</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1719168327636</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
