@@ -8,5 +8,7 @@
 package org.yy.client;
 
 public class CmdClient{
+    public void test(){
 
+    }
 }
