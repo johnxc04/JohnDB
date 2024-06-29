@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="实现了索引的rm功能&#10;2024年6月29日">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.table" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/model/command/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/AbstractCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
@@ -54,9 +51,12 @@
   }
 }]]></component>
   <component name="RunManager" selected="应用程序.SocketClientUsage">
-    <configuration name="SocketClientUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="SocketClientUsage" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
       <module name="YYDB" />
+      <selectedOptions>
+        <option name="environmentVariables" visible="false" />
+      </selectedOptions>
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.yy.example.*" />
@@ -93,6 +93,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="应用程序.SocketClientUsage" />
+      <item itemvalue="应用程序.SocketServerUsage" />
+      <item itemvalue="应用程序.StoreUsage" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.SocketClientUsage" />
@@ -249,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719168899291</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="实现了索引的rm功能&#10;2024年6月29日">
+      <created>1719657874622</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1719657874622</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -311,7 +323,8 @@
     <MESSAGE value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
     <MESSAGE value="黄愿" />
     <MESSAGE value="zzy版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="zzy版本" />
+    <MESSAGE value="实现了索引的rm功能&#10;2024年6月29日" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了索引的rm功能&#10;2024年6月29日" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
