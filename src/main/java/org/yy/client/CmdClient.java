@@ -62,13 +62,6 @@ public class CmdClient{
                 .build();
         options.addOption(rmOption);
 
-        // 添加 -b 选项，没有参数
-        Option bOption = Option.builder("b")
-                .longOpt("backup")
-                .desc("回退")
-                .build();
-        options.addOption(bOption);
-
         // 添加 -h 或 --help 选项
         Option helpOption = Option.builder("h")
                 .longOpt("help")
@@ -99,26 +92,24 @@ public class CmdClient{
             String[] setArgs = cmd.getOptionValue("s").split(" ");
             String key = setArgs[1];
             String value = setArgs[2];
-            client.set(key, value);
+            client.Set(key, value);
         } else if (cmd.hasOption("g")) {
             String[] getArgs = cmd.getOptionValue("g").split(" ");
             String key = getArgs[1];
-            client.get(key);
+            client.Get(key);
         } else if (cmd.hasOption("r")) {
             String[] removeArgs = cmd.getOptionValue("r").split(" ");
             String key = removeArgs[1];
-            client.rm(key);
-        } else if (cmd.hasOption("b")) {
-            System.out.println("Backing up the database");
+            client.Remove(key);
         } else if (cmd.hasOption("h")) {
-            printHelp(formatter, options);
+            PrintHelp(formatter, options);
         } else {
-            printHelp(formatter, options);
+            PrintHelp(formatter, options);
         }
     }
 
     // 打印帮助信息
-    private static void printHelp(HelpFormatter formatter, Options options) {
+    private static void PrintHelp(HelpFormatter formatter, Options options) {
         formatter.printHelp("yydb", options, true);
     }
 

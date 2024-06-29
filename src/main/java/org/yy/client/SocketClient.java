@@ -24,7 +24,7 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public void set(String key, String value) {
+    public void Set(String key, String value) {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
@@ -41,7 +41,7 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public String get(String key) {
+    public String Get(String key) {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
@@ -59,7 +59,7 @@ public class SocketClient implements Client {
     }
 
     @Override
-    public void rm(String key) {
+    public void Remove(String key) {
         try (Socket socket = new Socket(host, port);
              ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
@@ -70,6 +70,24 @@ public class SocketClient implements Client {
             oos.flush();
             RespDTO resp = (RespDTO) ois.readObject();
             System.out.println("客户端RM:  " + "resp data: "+ resp.toString());
+            // 接收响应数据
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void GoBack() {
+        try (Socket socket = new Socket(host, port);
+             ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+             ObjectInputStream ois = new ObjectInputStream(socket.getInputStream())) {
+            // 传输序列化对象
+            ActionDTO dto = new ActionDTO(ActionTypeEnum.GOBACK, null, null);
+
+            oos.writeObject(dto);
+            oos.flush();
+            RespDTO resp = (RespDTO) ois.readObject();
+            System.out.println("客户端GOBACK" + "resp data: "+ resp.toString());
             // 接收响应数据
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

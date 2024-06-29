@@ -12,11 +12,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.yy.service.NormalStore;
 import org.yy.service.Store;
 import org.yy.utils.LoggerUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -38,25 +36,29 @@ public class SocketServerController implements Controller {
     }
 
     @Override
-    public void set(String key, String value) {
-        store.set(key, value);
+    public void Set(String key, String value) {
+        store.Set(key, value);
     }
 
     @Override
-    public String get(String key) {
-        return store.get(key);
+    public String Get(String key) {
+        return store.Get(key);
     }
 
     @Override
-    public void rm(String key) {
-        store.rm(key);
+    public void Remove(String key) {
+        store.Remove(key);
     }
 
     @Override
-    public void startServer() {
+    public void ReDoLog() {
+        store.ReDoLog();
+    }
+
+    @Override
+    public void StartServer() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             LoggerUtil.info(LOGGER, logFormat,"startServer","Server started, waiting for connections...");
-
             while (true) {
                 try {
                     Socket socket = serverSocket.accept();
@@ -70,6 +72,6 @@ public class SocketServerController implements Controller {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
 }

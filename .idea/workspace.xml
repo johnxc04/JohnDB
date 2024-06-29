@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="实现了索引的rm功能&#10;2024年6月29日">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="实现了客户端的命令行操作功能&#10;2024年6月29日">
+      <change afterPath="$PROJECT_DIR$/YY-db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.table" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easy-db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionTypeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketServerUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketServerUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/StoreUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/StoreUsage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/Store.java" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +35,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2i9UaNqdNYpmP6waDiq7jGg9nwC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -35,21 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "项目",
-    "project.structure.proportion": "0.14871795",
-    "project.structure.side.proportion": "0.34969854",
-    "settings.editor.selected.configurable": "preferences.fileTypes"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable&quot;: &quot;ALL&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14871795&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.34969854&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="应用程序.SocketClientUsage">
     <configuration name="SocketClientUsage" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
@@ -261,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719657874622</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="实现了客户端的命令行操作功能&#10;2024年6月29日">
+      <created>1719676426021</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1719676426021</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -324,7 +342,8 @@
     <MESSAGE value="黄愿" />
     <MESSAGE value="zzy版本" />
     <MESSAGE value="实现了索引的rm功能&#10;2024年6月29日" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了索引的rm功能&#10;2024年6月29日" />
+    <MESSAGE value="实现了客户端的命令行操作功能&#10;2024年6月29日" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现了客户端的命令行操作功能&#10;2024年6月29日" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

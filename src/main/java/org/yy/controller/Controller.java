@@ -8,11 +8,13 @@
 package org.yy.controller;
 
 public interface Controller {
-    void set(String key, String value);
+    void Set(String key, String value);
 
-    String get(String key);
+    String Get(String key);
 
-    void rm(String key);
+    void Remove(String key);
 
-    void startServer();
+    void ReDoLog();
+
+    void StartServer();
 }

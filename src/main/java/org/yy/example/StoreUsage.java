@@ -15,12 +15,12 @@ public class StoreUsage {
     public static void main(String[] args) {
         String dataDir="data"+ File.separator;
         NormalStore store = new NormalStore(dataDir);
-        store.set("zsy1","1");
-        store.set("zsy2","2");
-        store.set("zsy3","3");
-        store.set("zsy4","你好");
-        System.out.println(store.get("zsy4"));
-        store.rm("zsy4");
-        System.out.println(store.get("zsy4"));
+        store.Set("zsy1","1");
+        store.Set("zsy2","2");
+        store.Set("zsy3","3");
+        store.Set("zsy4","你好");
+        System.out.println(store.Get("zsy4"));
+        store.Remove("zsy4");
+        System.out.println(store.Get("zsy4"));
     }
 }
