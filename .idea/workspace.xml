@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿" />
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="配置文件的不同">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" afterDir="false" />
+    </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +42,7 @@
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.14871795",
     "project.structure.side.proportion": "0.34969854",
-    "settings.editor.selected.configurable": "build.tools"
+    "settings.editor.selected.configurable": "configurable.group.build"
   }
 }]]></component>
   <component name="RunManager">
@@ -272,7 +275,8 @@
     <MESSAGE value="Revert &quot;更改&quot;&#10;&#10;This reverts commit 85f896e1" />
     <MESSAGE value="黄愿" />
     <MESSAGE value="zzy版本" />
-    <option name="LAST_COMMIT_MESSAGE" value="zzy版本" />
+    <MESSAGE value="配置文件的不同" />
+    <option name="LAST_COMMIT_MESSAGE" value="配置文件的不同" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
