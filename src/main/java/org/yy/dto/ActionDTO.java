@@ -31,6 +31,6 @@ public class ActionDTO implements Serializable {
                 "type=" + type +
                 ", key='" + key + '\'' +
                 ", value='" + value + '\'' +
-                '}' + '\n';
+                '}';
     }
 }

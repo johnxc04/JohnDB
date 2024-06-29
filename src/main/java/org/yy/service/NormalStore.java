@@ -198,7 +198,14 @@ public class NormalStore implements Store {
     }
 
     @Override
-    public void close() throws IOException {
+    public void close() {}
+
+    public void RotateIndexFile() {
 
     }
+
+    public void CompressIndexFile() {
+
+    }
+
 }

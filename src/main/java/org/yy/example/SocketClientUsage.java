@@ -8,6 +8,7 @@
 package org.yy.example;
 
 import org.yy.client.Client;
+import org.yy.client.CmdClient;
 import org.yy.client.SocketClient;
 
 public class SocketClientUsage {
@@ -15,14 +16,17 @@ public class SocketClientUsage {
         String host = "localhost";
         int port = 12345;
         Client client = new SocketClient(host, port);
-        client.set("zsy12","for test");
-        client.get("zsy12");
-        //client.rm("zsy12");
-        client.get("zsy12");
+        CmdClient cmdClient = new CmdClient(client);
+        cmdClient.main();
 
-        client.get("zsy1");
-        client.get("zsy2");
-        client.get("zsy3");
-        client.get("zsy4");
+//        client.set("zsy12","for test");
+//        client.get("zsy12");
+//        client.rm("zsy12");
+//        client.get("zsy12");
+//
+//        client.get("zsy1");
+//        client.get("zsy2");
+//        client.get("zsy3");
+//        client.get("zsy4");
     }
 }
