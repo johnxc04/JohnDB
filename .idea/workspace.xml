@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿" />
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="黄愿">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.table" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/Hello.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/SocketClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/controller/SocketServerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/model/command/AbstractCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/model/command/AbstractCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
+    </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,17 +45,43 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable": "ALL",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/ProgrammingLearning/Java_Learning/大二下/大作业/YYDB",
+    "last_opened_file_path": "D:/ProgrammingLearning/Java_Learning/大二下/大作业/easy-db",
     "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "项目",
     "project.structure.proportion": "0.14871795",
     "project.structure.side.proportion": "0.34969854",
-    "settings.editor.selected.configurable": "build.tools"
+    "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="应用程序.SocketClientUsage">
     <configuration name="SocketClientUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
+      <module name="YYDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yy.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SocketServerUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketServerUsage" />
+      <module name="YYDB" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.yy.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.StoreUsage" />
       <module name="YYDB" />
       <extension name="coverage">
         <pattern>
@@ -59,6 +96,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="应用程序.SocketClientUsage" />
+        <item itemvalue="应用程序.SocketServerUsage" />
+        <item itemvalue="应用程序.StoreUsage" />
       </list>
     </recent_temporary>
   </component>
@@ -225,21 +264,6 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -257,6 +281,21 @@
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>

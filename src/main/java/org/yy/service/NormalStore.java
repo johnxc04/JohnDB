@@ -9,7 +9,6 @@ package org.yy.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import org.yy.controller.SocketServerHandler;
 import org.yy.model.command.Command;
 import org.yy.model.command.CommandPos;
 import org.yy.model.command.RmCommand;
@@ -28,7 +27,6 @@ import java.util.HashMap;
 import java.util.TreeMap;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.jar.JarEntry;
 
 public class NormalStore implements Store {
 
@@ -37,7 +35,6 @@ public class NormalStore implements Store {
     public static final String NAME = "data";
     private final Logger LOGGER = LoggerFactory.getLogger(NormalStore.class);
     private final String logFormat = "[NormalStore][{}]: {}";
-
 
     /**
      * 内存表，类似缓存
@@ -87,7 +84,6 @@ public class NormalStore implements Store {
         return this.dataDir + File.separator + NAME + TABLE;
     }
 
-
     public void reloadIndex() {
         try {
             RandomAccessFile file = new RandomAccessFile(this.genFilePath(), RW_MODE);
@@ -96,9 +92,11 @@ public class NormalStore implements Store {
             file.seek(start);
             while (start < len) {
                 int cmdLen = file.readInt();
+                System.out.println(cmdLen);
                 byte[] bytes = new byte[cmdLen];
                 file.read(bytes);
                 JSONObject value = JSON.parseObject(new String(bytes, StandardCharsets.UTF_8));
+                System.out.println(value);
                 Command command = CommandUtil.jsonToCommand(value);
                 start += 4;
                 if (command != null) {
@@ -118,7 +116,7 @@ public class NormalStore implements Store {
     public void set(String key, String value) {
         try {
             SetCommand command = new SetCommand(key, value);
-            byte[] commandBytes = JSONObject.toJSONBytes(command);
+            byte[] commandBytes = command.toByte();
             // 加锁
             indexLock.writeLock().lock();
             // TODO://先写内存表，内存表达到一定阀值再写进磁盘
@@ -130,6 +128,7 @@ public class NormalStore implements Store {
             CommandPos cmdPos = new CommandPos(pos, commandBytes.length);
             index.put(key, cmdPos);
             // TODO://判断是否需要将内存表中的值写回table
+
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
@@ -148,8 +147,14 @@ public class NormalStore implements Store {
             }
             byte[] commandBytes = RandomAccessFileUtil.readByIndex(this.genFilePath(), cmdPos.getPos(), cmdPos.getLen());
 
-            JSONObject value = JSONObject.parseObject(new String(commandBytes));
-            Command cmd = CommandUtil.jsonToCommand(value);
+            JSONObject value = null;
+            if (commandBytes != null) {
+                value = JSONObject.parseObject(new String(commandBytes));
+            }
+            Command cmd = null;
+            if (value != null) {
+                cmd = CommandUtil.jsonToCommand(value);
+            }
             if (cmd instanceof SetCommand) {
                 return ((SetCommand) cmd).getValue();
             }
@@ -169,12 +174,13 @@ public class NormalStore implements Store {
     public void rm(String key) {
         try {
             RmCommand command = new RmCommand(key);
-            byte[] commandBytes = JSONObject.toJSONBytes(command);
+            byte[] commandBytes = command.toByte();
             // 加锁
             indexLock.writeLock().lock();
             // TODO://先写内存表，内存表达到一定阀值再写进磁盘
 
             // 写table（wal）文件
+            RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
             int pos = RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
             // 保存到memTable
 
