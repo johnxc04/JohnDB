@@ -20,6 +20,6 @@ public class SocketServerUsage {
         String dataDir = "data"+ File.separator;
         Store store = new NormalStore(dataDir);
         SocketServerController controller = new SocketServerController(host, port, store);
-        controller.startServer();
+        controller.StartServer();
     }
 }

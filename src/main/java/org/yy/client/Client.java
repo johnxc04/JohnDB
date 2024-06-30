@@ -8,9 +8,12 @@
 package org.yy.client;
 
 public interface Client {
-    void set(String key, String value);
+    void Set(String key, String value);
 
-    String get(String key);
+    String Get(String key);
 
-    void rm(String key);
+    void Remove(String key);
+
+    void GoBack();
+
 }

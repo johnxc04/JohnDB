@@ -11,7 +11,6 @@ import org.yy.dto.ActionDTO;
 import org.yy.dto.ActionTypeEnum;
 import org.yy.dto.RespDTO;
 import org.yy.dto.RespStatusTypeEnum;
-import org.yy.service.NormalStore;
 import org.yy.service.Store;
 import org.yy.utils.LoggerUtil;
 
@@ -44,25 +43,32 @@ public class SocketServerHandler implements Runnable {
 
             // 处理命令逻辑(TODO://改成可动态适配的模式)
             if (dto.getType() == ActionTypeEnum.GET) {
-                String value = this.store.get(dto.getKey());
+                String value = this.store.Get(dto.getKey());
                 LoggerUtil.debug(LOGGER, "[SocketServerHandler][run]: {}", "get action resp" + dto.toString());
                 RespDTO resp = new RespDTO(RespStatusTypeEnum.SUCCESS, value);
                 oos.writeObject(resp);
                 oos.flush();
             }
             if (dto.getType() == ActionTypeEnum.SET) {
-                this.store.set(dto.getKey(), dto.getValue());
-                String value = this.store.get(dto.getKey());
+                this.store.Set(dto.getKey(), dto.getValue());
+                String value = this.store.Get(dto.getKey());
                 LoggerUtil.debug(LOGGER, "[SocketServerHandler][run]: {}", "set action resp" + dto.toString());
                 RespDTO resp = new RespDTO(RespStatusTypeEnum.SUCCESS, value);
                 oos.writeObject(resp);
                 oos.flush();
             }
             if (dto.getType() == ActionTypeEnum.RM) {
-                String value = this.store.get(dto.getKey());
-                this.store.rm(dto.getKey());
+                String value = this.store.Get(dto.getKey());
+                this.store.Remove(dto.getKey());
                 LoggerUtil.debug(LOGGER, "[SocketServerHandler][run]: {}", "rm action resp" + dto.toString());
                 RespDTO resp = new RespDTO(RespStatusTypeEnum.SUCCESS, value);
+                oos.writeObject(resp);
+                oos.flush();
+            }
+            if (dto.getType() == ActionTypeEnum.GOBACK) {
+                this.store.ReDoLog();
+                LoggerUtil.debug(LOGGER, "[SocketServerHandler][run]: {}", "go back action resp" + dto.toString());
+                RespDTO resp = new RespDTO(RespStatusTypeEnum.SUCCESS, null);
                 oos.writeObject(resp);
                 oos.flush();
             }
@@ -77,6 +83,5 @@ public class SocketServerHandler implements Runnable {
             }
         }
     }
-
 
 }

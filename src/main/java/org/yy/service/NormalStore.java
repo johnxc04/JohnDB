@@ -19,12 +19,9 @@ import org.yy.utils.CommandUtil;
 import org.yy.utils.LoggerUtil;
 import org.yy.utils.RandomAccessFileUtil;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -64,13 +61,19 @@ public class NormalStore implements Store {
     /**
      * 持久化阈值
      */
-//    private final int storeThreshold;
+    private final int storeThreshold = 5;
+
+    /**
+     * 计数
+     */
+    private int storeOperateNumber;
 
     public NormalStore(String dataDir) {
         this.dataDir = dataDir;
         this.indexLock = new ReentrantReadWriteLock();
         this.memTable = new TreeMap<String, Command>();
         this.index = new HashMap<>();
+        storeOperateNumber = 0;
 
         File file = new File(dataDir);
         if (!file.exists()) {
@@ -92,16 +95,18 @@ public class NormalStore implements Store {
             file.seek(start);
             while (start < len) {
                 int cmdLen = file.readInt();
-                System.out.println(cmdLen);
                 byte[] bytes = new byte[cmdLen];
                 file.read(bytes);
                 JSONObject value = JSON.parseObject(new String(bytes, StandardCharsets.UTF_8));
-                System.out.println(value);
                 Command command = CommandUtil.jsonToCommand(value);
                 start += 4;
                 if (command != null) {
                     CommandPos cmdPos = new CommandPos((int) start, cmdLen);
                     index.put(command.getKey(), cmdPos);
+                    // 如果日志中记载该键值是被删除的，就将其从内存里删去
+                    if (command.getClass().equals(RmCommand.class)) {
+                        index.remove(command.getKey(), cmdPos);
+                    }
                 }
                 start += cmdLen;
             }
@@ -113,13 +118,17 @@ public class NormalStore implements Store {
     }
 
     @Override
-    public void set(String key, String value) {
+    public void Set(String key, String value) {
         try {
             SetCommand command = new SetCommand(key, value);
             byte[] commandBytes = command.toByte();
             // 加锁
             indexLock.writeLock().lock();
-            // TODO://先写内存表，内存表达到一定阀值再写进磁盘
+            // 先写内存表，内存表达到一定阀值再写进磁盘
+            if (storeOperateNumber >= storeThreshold) {
+                storeOperateNumber = 0;
+                RotateDataBaseFile();
+            }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
             int pos = RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
@@ -127,8 +136,7 @@ public class NormalStore implements Store {
             // 添加索引
             CommandPos cmdPos = new CommandPos(pos, commandBytes.length);
             index.put(key, cmdPos);
-            // TODO://判断是否需要将内存表中的值写回table
-
+            storeOperateNumber++;
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
@@ -137,7 +145,7 @@ public class NormalStore implements Store {
     }
 
     @Override
-    public String get(String key) {
+    public String Get(String key) {
         try {
             indexLock.readLock().lock();
             // 从索引中获取信息
@@ -161,7 +169,6 @@ public class NormalStore implements Store {
             if (cmd instanceof RmCommand) {
                 return null;
             }
-
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
@@ -171,25 +178,24 @@ public class NormalStore implements Store {
     }
 
     @Override
-    public void rm(String key) {
+    public void Remove(String key) {
         try {
             RmCommand command = new RmCommand(key);
             byte[] commandBytes = command.toByte();
             // 加锁
             indexLock.writeLock().lock();
-            // TODO://先写内存表，内存表达到一定阀值再写进磁盘
 
+            // 先写内存表，内存表达到一定阀值再写进磁盘
+            if (storeOperateNumber >= storeThreshold) {
+                storeOperateNumber = 0;
+                RotateDataBaseFile();
+            }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
-            int pos = RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
+            RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
             // 保存到memTable
-
-            // 添加索引
-            CommandPos cmdPos = new CommandPos(pos, commandBytes.length);
-            index.put(key, cmdPos);
-
-            // TODO://判断是否需要将内存表中的值写回table
-
+            index.remove(key);
+            storeOperateNumber++;
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
@@ -198,14 +204,71 @@ public class NormalStore implements Store {
     }
 
     @Override
+    public void ReDoLog() {
+        reloadIndex();
+        RotateDataBaseFile();
+    }
+
+    @Override
     public void close() {}
 
-    public void RotateIndexFile() {
-
+    public void ClearDataBaseFile(String filePath) {
+        try (FileWriter writer = new FileWriter(filePath)) {
+            // 不写入任何内容，直接关闭writer
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void CompressIndexFile() {
+        ArrayList<String> arrayList = new ArrayList<>();
+        HashSet<String> hashSet = new HashSet<>();
 
+        try (Scanner scanner = new Scanner(new File(this.genFilePath()))) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                // 处理每一行
+                if (!hashSet.contains(line)) {
+                    arrayList.add(line);
+                    hashSet.add(line);
+                }
+            }
+            //arrayList.remove(arrayList.size() - 1);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        ClearDataBaseFile(this.genFilePath());
+
+        try (FileWriter writer = new FileWriter(this.genFilePath())) {
+            for (String line :
+                arrayList) {
+                writer.write(line + "\r\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        index.clear();
+
+        reloadIndex();
+    }
+
+    public void RotateDataBaseFile() {
+        // 清空数据库文件
+        ClearDataBaseFile("YY-db");
+
+        // 压缩日志文件
+        CompressIndexFile();
+
+        // 重写数据库文件
+        try (FileWriter writer = new FileWriter("YY-db")) {
+            for (String key : index.keySet()) {
+                writer.write(key + "," + Get(key) + "\r\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
