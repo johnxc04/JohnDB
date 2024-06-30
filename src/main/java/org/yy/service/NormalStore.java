@@ -9,6 +9,7 @@ package org.yy.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import lombok.Getter;
 import org.yy.model.command.Command;
 import org.yy.model.command.CommandPos;
 import org.yy.model.command.RmCommand;
@@ -41,6 +42,7 @@ public class NormalStore implements Store {
     /**
      * hash索引，存的是数据长度和偏移量
      * */
+    @Getter
     private HashMap<String, CommandPos> index;
 
     /**
@@ -127,7 +129,10 @@ public class NormalStore implements Store {
             // 先写内存表，内存表达到一定阀值再写进磁盘
             if (storeOperateNumber >= storeThreshold) {
                 storeOperateNumber = 0;
-                RotateDataBaseFile();
+
+//                RotateDataBaseFile();
+
+                RotateDataBaseFile(this);
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -188,7 +193,10 @@ public class NormalStore implements Store {
             // 先写内存表，内存表达到一定阀值再写进磁盘
             if (storeOperateNumber >= storeThreshold) {
                 storeOperateNumber = 0;
-                RotateDataBaseFile();
+
+//                RotateDataBaseFile();
+
+                RotateDataBaseFile(this);
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -206,7 +214,10 @@ public class NormalStore implements Store {
     @Override
     public void ReDoLog() {
         reloadIndex();
-        RotateDataBaseFile();
+
+//                RotateDataBaseFile();
+
+        RotateDataBaseFile(this);
     }
 
     @Override
@@ -254,21 +265,23 @@ public class NormalStore implements Store {
         reloadIndex();
     }
 
-    public void RotateDataBaseFile() {
-        // 清空数据库文件
-        ClearDataBaseFile("YY-db");
-
-        // 压缩日志文件
-        CompressIndexFile();
-
-        // 重写数据库文件
-        try (FileWriter writer = new FileWriter("YY-db")) {
-            for (String key : index.keySet()) {
-                writer.write(key + "," + Get(key) + "\r\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void RotateDataBaseFile(NormalStore normalStore) {
+        Rotate rotate = new Rotate(normalStore);
+        rotate.start();
+//        // 清空数据库文件
+//        ClearDataBaseFile("YY-db");
+//
+//        // 压缩日志文件
+//        CompressIndexFile();
+//
+//        // 重写数据库文件
+//        try (FileWriter writer = new FileWriter("YY-db")) {
+//            for (String key : index.keySet()) {
+//                writer.write(key + "," + Get(key) + "\r\n");
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 }
