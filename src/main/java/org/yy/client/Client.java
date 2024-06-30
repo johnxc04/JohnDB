@@ -14,6 +14,4 @@ public interface Client {
 
     void Remove(String key);
 
-    void GoBack();
-
 }

@@ -65,13 +65,6 @@ public class SocketServerHandler implements Runnable {
                 oos.writeObject(resp);
                 oos.flush();
             }
-            if (dto.getType() == ActionTypeEnum.GOBACK) {
-                this.store.ReDoLog();
-                LoggerUtil.debug(LOGGER, "[SocketServerHandler][run]: {}", "go back action resp" + dto.toString());
-                RespDTO resp = new RespDTO(RespStatusTypeEnum.SUCCESS, null);
-                oos.writeObject(resp);
-                oos.flush();
-            }
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
