@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="移除撤消功能&#10;2024年6月30日" />
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="移除撤消功能&#10;2024年6月30日">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.table" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.table" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
+    </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -274,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1719676426021</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="移除撤消功能&#10;2024年6月30日">
+      <created>1719762387577</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1719762387577</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -338,7 +349,8 @@
     <MESSAGE value="zzy版本" />
     <MESSAGE value="实现了索引的rm功能&#10;2024年6月29日" />
     <MESSAGE value="实现了客户端的命令行操作功能&#10;2024年6月29日" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现了客户端的命令行操作功能&#10;2024年6月29日" />
+    <MESSAGE value="移除撤消功能&#10;2024年6月30日" />
+    <option name="LAST_COMMIT_MESSAGE" value="移除撤消功能&#10;2024年6月30日" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
