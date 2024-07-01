@@ -82,7 +82,7 @@ public class NormalStore implements Store {
             LoggerUtil.info(LOGGER,logFormat, "NormalStore","dataDir isn't exist,creating...");
             file.mkdirs();
         }
-        this.reloadIndex();
+        this.RotateDataBaseFile();
     }
 
     public String genFilePath() {
@@ -132,7 +132,7 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-                RotateDataBaseFile(this);
+                RotateDataBaseFile();
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -196,7 +196,7 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-                RotateDataBaseFile(this);
+                RotateDataBaseFile();
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
@@ -217,7 +217,7 @@ public class NormalStore implements Store {
 
 //                RotateDataBaseFile();
 
-        RotateDataBaseFile(this);
+        RotateDataBaseFile();
     }
 
     @Override
@@ -269,7 +269,7 @@ public class NormalStore implements Store {
         reloadIndex();
     }
 
-    public void RotateDataBaseFile(NormalStore normalStore) {
+    public void RotateDataBaseFile() {
 //        Rotate rotate = new Rotate(normalStore);
 //        rotate.start();
 
