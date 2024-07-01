@@ -89,14 +89,14 @@
 }</component>
   <component name="RunManager" selected="应用程序.SocketServerUsage">
     <configuration name="SocketClientUsage" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.zf.example.SocketClientUsage" />
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
       <module name="YYDB" />
       <selectedOptions>
         <option name="environmentVariables" visible="false" />
       </selectedOptions>
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.zf.example.*" />
+          <option name="PATTERN" value="org.yy.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,11 +105,11 @@
       </method>
     </configuration>
     <configuration name="SocketServerUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.zf.example.SocketServerUsage" />
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketServerUsage" />
       <module name="YYDB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.zf.example.*" />
+          <option name="PATTERN" value="org.yy.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,11 +118,11 @@
       </method>
     </configuration>
     <configuration name="StoreUsage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.zf.example.StoreUsage" />
+      <option name="MAIN_CLASS_NAME" value="org.yy.example.StoreUsage" />
       <module name="YYDB" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.zf.example.*" />
+          <option name="PATTERN" value="org.yy.example.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
