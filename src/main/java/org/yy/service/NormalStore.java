@@ -28,7 +28,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class NormalStore implements Store {
 
-    public static final String TABLE = ".table";
+    public static final String TABLE = ".log";
     public static final String RW_MODE = "rw";
     public static final String NAME = "data";
     private final Logger LOGGER = LoggerFactory.getLogger(NormalStore.class);
@@ -106,9 +106,9 @@ public class NormalStore implements Store {
                     CommandPos cmdPos = new CommandPos((int) start, cmdLen);
                     index.put(command.getKey(), cmdPos);
                     // 如果日志中记载该键值是被删除的，就将其从内存里删去
-                    if (command.getClass().equals(RmCommand.class)) {
-                        index.remove(command.getKey(), cmdPos);
-                    }
+//                    if (command.getClass().equals(RmCommand.class)) {
+//                        index.remove(command.getKey(), cmdPos);
+//                    }
                 }
                 start += cmdLen;
             }
@@ -242,6 +242,10 @@ public class NormalStore implements Store {
                 if (!hashSet.contains(line)) {
                     arrayList.add(line);
                     hashSet.add(line);
+                } else if (arrayList.size() > 1){
+                    if (!arrayList.get(arrayList.size() - 1).equals(line)) {
+                        arrayList.add(line);
+                    }
                 }
             }
             //arrayList.remove(arrayList.size() - 1);
@@ -266,22 +270,23 @@ public class NormalStore implements Store {
     }
 
     public void RotateDataBaseFile(NormalStore normalStore) {
-        Rotate rotate = new Rotate(normalStore);
-        rotate.start();
-//        // 清空数据库文件
-//        ClearDataBaseFile("YY-db");
-//
-//        // 压缩日志文件
-//        CompressIndexFile();
-//
-//        // 重写数据库文件
-//        try (FileWriter writer = new FileWriter("YY-db")) {
-//            for (String key : index.keySet()) {
-//                writer.write(key + "," + Get(key) + "\r\n");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+//        Rotate rotate = new Rotate(normalStore);
+//        rotate.start();
+
+        // 清空数据库文件
+        ClearDataBaseFile("YY-table");
+
+        // 压缩日志文件
+        CompressIndexFile();
+
+        // 重写数据库文件
+        try (FileWriter writer = new FileWriter("YY-table")) {
+            for (String key : index.keySet()) {
+                writer.write(key + "," + Get(key) + "\r\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }

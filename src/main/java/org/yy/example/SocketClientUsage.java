@@ -19,6 +19,8 @@ public class SocketClientUsage {
         CmdClient cmdClient = new CmdClient(client);
         cmdClient.main();
 
+        // 测试
+
 //        client.set("zsy12","for test");
 //        client.get("zsy12");
 //        client.rm("zsy12");
