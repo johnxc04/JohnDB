@@ -25,6 +25,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.zip.GZIPOutputStream;
 
 public class NormalStore implements Store {
 
@@ -147,6 +148,11 @@ public class NormalStore implements Store {
         } finally {
             indexLock.writeLock().unlock();
         }
+        try {
+            FilCompress(new File(this.genFilePath()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -208,6 +214,11 @@ public class NormalStore implements Store {
             throw new RuntimeException(t);
         } finally {
             indexLock.writeLock().unlock();
+        }
+        try {
+            FilCompress(new File(this.genFilePath()));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -289,4 +300,32 @@ public class NormalStore implements Store {
         }
     }
 
+    public void FilCompress(File file) throws IOException {
+        FileReader fr = new FileReader("p.properties");
+        Properties prop = new Properties();
+        prop.load(fr);
+        fr.close();
+        int MAXFILELENTH = Integer.parseInt(prop.getProperty("MAXFILELENTH"));
+        int TIMES = Integer.parseInt(prop.getProperty("TIMES"));
+        if(file.length() > MAXFILELENTH){
+            TIMES++;
+            try(FileInputStream fis = new FileInputStream(file);
+            FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
+            GZIPOutputStream gzos = new GZIPOutputStream(fos)){
+                indexLock.writeLock().lock();
+                byte[] bytes = new byte[MAXFILELENTH];
+                int len;
+                while ((len = fis.read(bytes)) != -1) {
+                    gzos.write(bytes, 0, len);
+                }
+                ClearDataBaseFile(file.getAbsolutePath());
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            finally {
+                indexLock.writeLock().unlock();
+            }
+        }
+    }
 }
