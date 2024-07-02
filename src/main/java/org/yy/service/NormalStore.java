@@ -107,9 +107,9 @@ public class NormalStore implements Store {
                     CommandPos cmdPos = new CommandPos((int) start, cmdLen);
                     index.put(command.getKey(), cmdPos);
                     // 如果日志中记载该键值是被删除的，就将其从内存里删去
-//                    if (command.getClass().equals(RmCommand.class)) {
-//                        index.remove(command.getKey(), cmdPos);
-//                    }
+                    if (command.getClass().equals(RmCommand.class)) {
+                        index.remove(command.getKey(), cmdPos);
+                    }
                 }
                 start += cmdLen;
             }
