@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="修正压缩算法&#10;2024年7月2日">
+      <change afterPath="$PROJECT_DIR$/data/data.log2.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YY-table" beforeDir="false" afterPath="$PROJECT_DIR$/YY-table" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/p.properties" beforeDir="false" afterPath="$PROJECT_DIR$/p.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
@@ -61,7 +63,7 @@
     &quot;应用程序.SocketServerUsage.executor&quot;: &quot;Run&quot;
   }
 }</component>
-  <component name="RunManager" selected="应用程序.SocketServerUsage">
+  <component name="RunManager" selected="应用程序.SocketClientUsage">
     <configuration name="SocketClientUsage" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.yy.example.SocketClientUsage" />
       <module name="YYDB" />
@@ -111,8 +113,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.SocketServerUsage" />
         <item itemvalue="应用程序.SocketClientUsage" />
+        <item itemvalue="应用程序.SocketServerUsage" />
         <item itemvalue="应用程序.StoreUsage" />
       </list>
     </recent_temporary>
@@ -322,6 +324,21 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
@@ -339,21 +356,6 @@
                 </map>
               </option>
             </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="*" />
-                </option>
-              </RecentGroup>
-            </list>
           </value>
         </entry>
       </map>

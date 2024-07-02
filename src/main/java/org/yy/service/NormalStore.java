@@ -301,14 +301,18 @@ public class NormalStore implements Store {
     }
 
     public void FilCompress(File file) throws IOException {
-        FileReader fr = new FileReader("p.properties");
+        FileInputStream fisp = new FileInputStream("p.properties");
         Properties prop = new Properties();
-        prop.load(fr);
-        fr.close();
+        prop.load(fisp);
+        fisp.close();
         int MAXFILELENTH = Integer.parseInt(prop.getProperty("MAXFILELENTH"));
         int TIMES = Integer.parseInt(prop.getProperty("TIMES"));
         if(file.length() > MAXFILELENTH){
             TIMES++;
+            prop.put("TIMES",Integer.toString(TIMES));
+            FileOutputStream fosp = new FileOutputStream("p.properties");
+            prop.store(fosp, null);
+            fosp.close();
             try(FileInputStream fis = new FileInputStream(file);
             FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
             GZIPOutputStream gzos = new GZIPOutputStream(fos)){
