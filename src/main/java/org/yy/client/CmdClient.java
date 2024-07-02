@@ -112,8 +112,4 @@ public class CmdClient{
     private static void PrintHelp(HelpFormatter formatter, Options options) {
         formatter.printHelp("yydb", options, true);
     }
-
-    public void Test(String[] input) {
-
-    }
 }

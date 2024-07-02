@@ -23,5 +23,4 @@ public enum ActionTypeEnum {
     /*
      * 回退
      */
-    GOBACK
 }
