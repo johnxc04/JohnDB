@@ -186,8 +186,6 @@ public class NormalStore implements Store {
             if (storeOperateNumber >= storeThreshold) {
                 storeOperateNumber = 0;
 
-//                RotateDataBaseFile();
-
                 RotateDataBaseFile();
             }
             // 写table（wal）文件
@@ -211,8 +209,6 @@ public class NormalStore implements Store {
     @Override
     public void ReDoLog() {
         reloadIndex();
-
-//                RotateDataBaseFile();
 
         RotateDataBaseFile();
     }
@@ -245,7 +241,6 @@ public class NormalStore implements Store {
                     }
                 }
             }
-            //arrayList.remove(arrayList.size() - 1);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -296,23 +291,24 @@ public class NormalStore implements Store {
             FileOutputStream fosp = new FileOutputStream("p.properties");
             prop.store(fosp, null);
             fosp.close();
-            try(FileInputStream fis = new FileInputStream(file);
-            FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
-            GZIPOutputStream gzos = new GZIPOutputStream(fos)){
-                indexLock.writeLock().lock();
-                byte[] bytes = new byte[MAXFILELENTH];
-                int len;
-                while ((len = fis.read(bytes)) != -1) {
-                    gzos.write(bytes, 0, len);
-                }
-                ClearDataBaseFile(file.getAbsolutePath());
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            finally {
-                indexLock.writeLock().unlock();
-            }
+            new FileOutputStream(file.getAbsolutePath() + TIMES);
+//            try(FileInputStream fis = new FileInputStream(file);
+//            FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
+//            GZIPOutputStream gzos = new GZIPOutputStream(fos)){
+//                indexLock.writeLock().lock();
+//                byte[] bytes = new byte[MAXFILELENTH];
+//                int len;
+//                while ((len = fis.read(bytes)) != -1) {
+//                    gzos.write(bytes, 0, len);
+//                }
+//                ClearDataBaseFile(file.getAbsolutePath());
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            finally {
+//                indexLock.writeLock().unlock();
+//            }
         }
     }
 }

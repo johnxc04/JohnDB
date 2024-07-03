@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="修正代码结构&#10;2024年7月2日">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YY-table" beforeDir="false" afterPath="$PROJECT_DIR$/YY-table" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/data.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/Rotate.java" beforeDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +142,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718902349141</updated>
-      <workItem from="1719934886923" duration="17288000" />
+      <workItem from="1719934886923" duration="19957000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1719152720354</created>
@@ -334,7 +330,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719940169582</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日">
+      <option name="closed" value="true" />
+      <created>1719972976567</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1719972976567</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,7 +442,8 @@
     <MESSAGE value="测试&#10;2024年7月1日" />
     <MESSAGE value="修正压缩算法&#10;2024年7月2日" />
     <MESSAGE value="修正代码结构&#10;2024年7月2日" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正代码结构&#10;2024年7月2日" />
+    <MESSAGE value="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
