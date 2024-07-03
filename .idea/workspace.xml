@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="修改压缩算法，移除了压缩文件的功能">
+      <change afterPath="$PROJECT_DIR$/data/Scratch.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.log1.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.log2.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/data.log3.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/p.properties" beforeDir="false" afterPath="$PROJECT_DIR$/p.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
@@ -142,7 +148,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718902349141</updated>
-      <workItem from="1719934886923" duration="19957000" />
+      <workItem from="1719934886923" duration="24837000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1719152720354</created>
@@ -338,7 +344,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719972976567</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="修改压缩算法，移除了压缩文件的功能">
+      <option name="closed" value="true" />
+      <created>1719993962286</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1719993962286</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +457,8 @@
     <MESSAGE value="修正压缩算法&#10;2024年7月2日" />
     <MESSAGE value="修正代码结构&#10;2024年7月2日" />
     <MESSAGE value="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改命令行输入格式 可以使用set进行输入而不是-set&#10;并且优化了冗余代码&#10;2024年7月3日" />
+    <MESSAGE value="修改压缩算法，移除了压缩文件的功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改压缩算法，移除了压缩文件的功能" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
