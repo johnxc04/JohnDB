@@ -36,11 +36,6 @@ public class NormalStore implements Store {
     private final String logFormat = "[NormalStore][{}]: {}";
 
     /**
-     * 内存表，类似缓存
-     */
-    private TreeMap<String, Command> memTable;
-
-    /**
      * hash索引，存的是数据长度和偏移量
      * */
     @Getter
@@ -57,11 +52,6 @@ public class NormalStore implements Store {
     private final ReadWriteLock indexLock;
 
     /**
-     * 暂存数据的日志句柄
-     */
-    private RandomAccessFile writerReader;
-
-    /**
      * 持久化阈值
      */
     private final int storeThreshold = 5;
@@ -74,7 +64,6 @@ public class NormalStore implements Store {
     public NormalStore(String dataDir) {
         this.dataDir = dataDir;
         this.indexLock = new ReentrantReadWriteLock();
-        this.memTable = new TreeMap<String, Command>();
         this.index = new HashMap<>();
         storeOperateNumber = 0;
 
@@ -131,14 +120,11 @@ public class NormalStore implements Store {
             if (storeOperateNumber >= storeThreshold) {
                 storeOperateNumber = 0;
 
-//                RotateDataBaseFile();
-
                 RotateDataBaseFile();
             }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
             int pos = RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
-            // 保存到memTable
             // 添加索引
             CommandPos cmdPos = new CommandPos(pos, commandBytes.length);
             index.put(key, cmdPos);
@@ -281,9 +267,6 @@ public class NormalStore implements Store {
     }
 
     public void RotateDataBaseFile() {
-//        Rotate rotate = new Rotate(normalStore);
-//        rotate.start();
-
         // 清空数据库文件
         ClearDataBaseFile("YY-table");
 

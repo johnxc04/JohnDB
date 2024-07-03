@@ -15,8 +15,6 @@ import java.util.Scanner;
 public class CmdClient{
     private Client client;
 
-    public CmdClient() {}
-
     public CmdClient(Client client) {
         this.client = client;
     }
@@ -26,6 +24,18 @@ public class CmdClient{
         String[] input = new String[1];
         while (true){
             input[0] =  scanner.nextLine();
+            if (input[0].startsWith("set")){
+                input[0] = "-s " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+            }
+            if (input[0].startsWith("get")){
+                input[0] = "-g " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+            }
+            if (input[0].startsWith("remove")){
+                input[0] = "-rm " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+            }
+            if (input[0].startsWith("help")){
+                input[0] = "-h " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+            }
             CMD(input);
         }
     }
@@ -54,7 +64,7 @@ public class CmdClient{
         options.addOption(getOption);
 
         // 添加 -rm 选项，它接受一个参数（key）
-        Option rmOption = Option.builder("r")
+        Option rmOption = Option.builder("rm")
                 .longOpt("remove")
                 .hasArg()
                 .argName("key")
@@ -80,25 +90,31 @@ public class CmdClient{
         try {
             cmd = parser.parse(options, input);
         } catch (ParseException e) {
-            System.err.println("Parsing failed.  Reason: " + e.getMessage());
-            formatter.printHelp("yydb", options);
+            System.err.println("输入命令错误 原因：: " + e.getMessage());
+            formatter.printHelp("Mesql", options);
             System.exit(1);
         }
 
         System.out.println(Arrays.toString(cmd.getOptions()));
 
+        // 确保至少有一个选项被指定
+        if (cmd.getOptions().length == 0) {
+            PrintHelp(formatter, options);
+            return;
+        }
+
         // 进行条件判断
-        if (cmd.hasOption("s")) {
-            String[] setArgs = cmd.getOptionValue("s").split(" ");
+        if (cmd.hasOption("set")) {
+            String[] setArgs = cmd.getOptionValue("set").split(" ");
             String key = setArgs[1];
             String value = setArgs[2];
             client.Set(key, value);
-        } else if (cmd.hasOption("g")) {
-            String[] getArgs = cmd.getOptionValue("g").split(" ");
+        } else if (cmd.hasOption("get")) {
+            String[] getArgs = cmd.getOptionValue("get").split(" ");
             String key = getArgs[1];
             client.Get(key);
-        } else if (cmd.hasOption("r")) {
-            String[] removeArgs = cmd.getOptionValue("r").split(" ");
+        } else if (cmd.hasOption("rm")) {
+            String[] removeArgs = cmd.getOptionValue("rm").split(" ");
             String key = removeArgs[1];
             client.Remove(key);
         } else if (cmd.hasOption("h")) {
@@ -110,6 +126,6 @@ public class CmdClient{
 
     // 打印帮助信息
     private static void PrintHelp(HelpFormatter formatter, Options options) {
-        formatter.printHelp("yydb", options, true);
+        formatter.printHelp("Mesql", options, true);
     }
 }

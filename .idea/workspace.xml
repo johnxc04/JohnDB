@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="修正压缩算法&#10;2024年7月2日">
+    <list default="true" id="a5ab087a-8acf-431b-8bbc-53a241f4f6dc" name="更改" comment="修正代码结构&#10;2024年7月2日">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YY-table" beforeDir="false" afterPath="$PROJECT_DIR$/YY-table" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/data.log" beforeDir="false" afterPath="$PROJECT_DIR$/data/data.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/client/CmdClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionTypeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/dto/ActionTypeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/example/SocketClientUsage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/yy/service/NormalStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/yy/service/Rotate.java" beforeDir="false" />
     </list>
     <list id="b142304f-4277-43df-94ef-bbeeffde2625" name="Spreps 进行的更改" comment="更改" />
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +146,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718902349141</updated>
-      <workItem from="1719934886923" duration="3963000" />
+      <workItem from="1719934886923" duration="17288000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1719152720354</created>
@@ -326,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1719871752878</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="修正代码结构&#10;2024年7月2日">
+      <option name="closed" value="true" />
+      <created>1719940169581</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1719940169582</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,6 +364,11 @@
               </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
                   <option value="master" />
                 </option>
               </RecentGroup>
@@ -380,6 +393,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -419,7 +437,8 @@
     <MESSAGE value="移除撤消功能&#10;2024年6月30日" />
     <MESSAGE value="测试&#10;2024年7月1日" />
     <MESSAGE value="修正压缩算法&#10;2024年7月2日" />
-    <option name="LAST_COMMIT_MESSAGE" value="修正压缩算法&#10;2024年7月2日" />
+    <MESSAGE value="修正代码结构&#10;2024年7月2日" />
+    <option name="LAST_COMMIT_MESSAGE" value="修正代码结构&#10;2024年7月2日" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
