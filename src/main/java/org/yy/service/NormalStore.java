@@ -25,7 +25,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.util.zip.GZIPOutputStream;
 
 public class NormalStore implements Store {
 
@@ -73,15 +72,11 @@ public class NormalStore implements Store {
             file.mkdirs();
         }
         this.reloadIndex();
-        this.RotateDataBaseFile();
+//        this.RotateDataBaseFile();
     }
 
     public String genFilePath() {
         return this.dataDir + File.separator + NAME + TABLE;
-    }
-
-    public String genNewFilePath() {
-        return this.dataDir + File.separator + NAME + "0" + TABLE;
     }
 
     public String genScratchFilePath() {
@@ -156,23 +151,30 @@ public class NormalStore implements Store {
             // 加锁
             indexLock.writeLock().lock();
             // 先写内存表，内存表达到一定阀值再写进磁盘
-            if (storeOperateNumber >= storeThreshold) {
-                storeOperateNumber = 0;
+//            if (storeOperateNumber >= storeThreshold) {
+//                storeOperateNumber = 0;
+//
+//                RotateDataBaseFile();
+//            }
 
-                RotateDataBaseFile();
-            }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
             int pos = RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
-            // 保存到memTable
             // 添加索引
             CommandPos cmdPos = new CommandPos(pos, commandBytes.length);
             index.put(key, cmdPos);
             storeOperateNumber++;
+            this.RotateDataBaseFile();
+
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
             indexLock.writeLock().unlock();
+        }
+        try {
+            RotateLog(new File(this.genFilePath()));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -250,21 +252,26 @@ public class NormalStore implements Store {
             indexLock.writeLock().lock();
 
             // 先写内存表，内存表达到一定阀值再写进磁盘
-            if (storeOperateNumber >= storeThreshold) {
-                storeOperateNumber = 0;
-
-                RotateDataBaseFile();
-            }
+//            if (storeOperateNumber >= storeThreshold) {
+//                storeOperateNumber = 0;
+//
+//                RotateDataBaseFile();
+//            }
             // 写table（wal）文件
             RandomAccessFileUtil.writeInt(this.genFilePath(), commandBytes.length);
             RandomAccessFileUtil.write(this.genFilePath(), commandBytes);
-            // 保存到memTable
             index.remove(key);
             storeOperateNumber++;
+            this.RotateDataBaseFile();
         } catch (Throwable t) {
             throw new RuntimeException(t);
         } finally {
             indexLock.writeLock().unlock();
+        }
+        try {
+            RotateLog(new File(this.genFilePath()));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -344,4 +351,80 @@ public class NormalStore implements Store {
         CompressLogFile();
 
     }
+
+    public void RotateLog(File logfile) {
+        if(logfile.length() > 512){
+            String absolutePath = logfile.getAbsolutePath();
+            int lastDotIndex = absolutePath.lastIndexOf('.');
+            String fileNameWithoutExtension = absolutePath.substring(0, lastDotIndex);
+            try (FileInputStream fis = new FileInputStream(logfile);
+                FileOutputStream fos = new FileOutputStream(fileNameWithoutExtension + System.currentTimeMillis() + TABLE)
+                )
+                {
+                    // 加锁，防止多线程同时写入
+                indexLock.writeLock().lock();
+                    byte[] bytes = new byte[512];
+                int len;
+                while ((len = fis.read(bytes)) != -1) {
+                    fos.write(bytes, 0, len);
+                }
+                // 清空原文件内容
+                ClearDataBaseFile(logfile.getAbsolutePath());
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+            finally {
+                // 解锁
+                indexLock.writeLock().unlock();
+            }
+        }
+    }
+
+
+//    public void FilCompress(File file) throws IOException {
+//        // 读取配置文件p.properties
+//        FileInputStream fisp = new FileInputStream("p.properties");
+//        Properties prop = new Properties();
+//        prop.load(fisp);
+//        fisp.close();
+//
+//        // 获取配置文件中的MAXFILELENTH和TIMES属性值
+//        int MAXFILELENTH = Integer.parseInt(prop.getProperty("MAXFILELENTH"));
+//        int TIMES = Integer.parseInt(prop.getProperty("TIMES"));
+//
+//        // 如果文件大小超过MAXFILELENTH，则进行压缩
+//        if(file.length() > MAXFILELENTH){
+//            TIMES++;
+//            prop.put("TIMES",Integer.toString(TIMES));
+//
+//            // 更新配置文件中的TIMES属性值
+//            FileOutputStream fosp = new FileOutputStream("p.properties");
+//            prop.store(fosp, null);
+//            fosp.close();
+//
+//            try(
+//                FileInputStream fis = new FileInputStream(file);
+//                FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
+//                GZIPOutputStream gzos = new GZIPOutputStream(fos)
+//                ){
+//                // 加锁，防止多线程同时写入
+//                indexLock.writeLock().lock();
+//                byte[] bytes = new byte[MAXFILELENTH];
+//                int len;
+//                while ((len = fis.read(bytes)) != -1) {
+//                    gzos.write(bytes, 0, len);
+//                }
+//                // 清空原文件内容
+//                ClearDataBaseFile(file.getAbsolutePath());
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            finally {
+//                // 解锁
+//                indexLock.writeLock().unlock();
+//            }
+//        }
+//    }
+
 }

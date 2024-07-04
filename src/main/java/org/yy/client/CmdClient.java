@@ -25,16 +25,16 @@ public class CmdClient{
         while (true){
             input[0] =  scanner.nextLine();
             if (input[0].startsWith("set")){
-                input[0] = "-s " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+                input[0] = "-s " + input[0].substring(4).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
             }
             if (input[0].startsWith("get")){
-                input[0] = "-g " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+                input[0] = "-g " + input[0].substring(4).trim(); // 从 "get" 后面开始截取，去除可能的前导空格
             }
             if (input[0].startsWith("remove")){
-                input[0] = "-rm " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+                input[0] = "-rm " + input[0].substring(7).trim(); // 从 "rm" 后面开始截取，去除可能的前导空格
             }
             if (input[0].startsWith("help")){
-                input[0] = "-h " + input[0].substring(3).trim(); // 从 "set" 后面开始截取，去除可能的前导空格
+                input[0] = "-h"; // 从 "help" 后面开始截取，去除可能的前导空格
             }
             CMD(input);
         }

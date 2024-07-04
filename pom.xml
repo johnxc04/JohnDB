@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.zf</groupId>
-    <artifactId>YYDB</artifactId>
+    <artifactId>Mesql</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>YYDB</name>
     <description>KvsDb</description>

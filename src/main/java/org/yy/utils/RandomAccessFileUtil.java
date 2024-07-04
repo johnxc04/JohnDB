@@ -28,6 +28,7 @@ public class RandomAccessFileUtil {
         }
         return (int)len;
     }
+
     public static void writeInt(String filePath, int value) {
         RandomAccessFile file = null;
         long len = -1L;
