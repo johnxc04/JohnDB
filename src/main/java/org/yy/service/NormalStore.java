@@ -72,7 +72,6 @@ public class NormalStore implements Store {
             file.mkdirs();
         }
         this.reloadIndex();
-//        this.RotateDataBaseFile();
     }
 
     public String genFilePath() {
@@ -379,52 +378,4 @@ public class NormalStore implements Store {
             }
         }
     }
-
-
-//    public void FilCompress(File file) throws IOException {
-//        // 读取配置文件p.properties
-//        FileInputStream fisp = new FileInputStream("p.properties");
-//        Properties prop = new Properties();
-//        prop.load(fisp);
-//        fisp.close();
-//
-//        // 获取配置文件中的MAXFILELENTH和TIMES属性值
-//        int MAXFILELENTH = Integer.parseInt(prop.getProperty("MAXFILELENTH"));
-//        int TIMES = Integer.parseInt(prop.getProperty("TIMES"));
-//
-//        // 如果文件大小超过MAXFILELENTH，则进行压缩
-//        if(file.length() > MAXFILELENTH){
-//            TIMES++;
-//            prop.put("TIMES",Integer.toString(TIMES));
-//
-//            // 更新配置文件中的TIMES属性值
-//            FileOutputStream fosp = new FileOutputStream("p.properties");
-//            prop.store(fosp, null);
-//            fosp.close();
-//
-//            try(
-//                FileInputStream fis = new FileInputStream(file);
-//                FileOutputStream fos = new FileOutputStream(file.getAbsolutePath() + TIMES + ".gz");
-//                GZIPOutputStream gzos = new GZIPOutputStream(fos)
-//                ){
-//                // 加锁，防止多线程同时写入
-//                indexLock.writeLock().lock();
-//                byte[] bytes = new byte[MAXFILELENTH];
-//                int len;
-//                while ((len = fis.read(bytes)) != -1) {
-//                    gzos.write(bytes, 0, len);
-//                }
-//                // 清空原文件内容
-//                ClearDataBaseFile(file.getAbsolutePath());
-//            }
-//            catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            finally {
-//                // 解锁
-//                indexLock.writeLock().unlock();
-//            }
-//        }
-//    }
-
 }
